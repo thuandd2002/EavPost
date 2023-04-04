@@ -1,0 +1,21 @@
+<?php
+/** @var \AHT\Eav\Block\Template $block */
+?>
+<script>
+    window.customConfig = <?=\Zend_Json::encode($block->getPost())?>;
+</script>
+<div id="md-knockout-example" data-bind="scope:'md-ko-example'">
+    <script type="text/x-magento-init">
+{
+"*": {
+    "Magento_Ui/js/core/app": {
+        "components": {
+                "md-ko-example": {
+                    "component": "AHT_Eav/js/simple2"
+                }
+            }
+        }
+    }
+}
+</script>
+</div>
