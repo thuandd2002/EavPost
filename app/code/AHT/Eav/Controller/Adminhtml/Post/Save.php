@@ -27,6 +27,7 @@ class Save extends Action
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
+        dd($data);
         $id = !empty($data['entity_id']) ? $data['entity_id'] : null;
         $newData = [
             'name' => $data['name'],
