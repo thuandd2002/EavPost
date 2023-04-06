@@ -1,14 +1,8 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-<<<<<<< Updated upstream
-        <add id="AHT_Eav::post" title="Eav" translate="Portfolio" module="AHT_Eav" sortOrder="50"   resource="AHT_Eav::post"/>
-        <add id="AHT_Eav::index" title="Post" module="AHT_Eav" parent="AHT_Eav::post" action="eav/post/index/" resource="AHT_Eav::index" sortOrder="55" />
-        <add id="AHT_Eav::category" title="Category" module="AHT_Eav" parent="AHT_Eav::portfolio" action="eav/category/" resource="AHT_Eav::category" sortOrder="55" />
-=======
         <add id="AHT_Eav::Eav" title="Eav" module="AHT_Eav" sortOrder="10" resource="AHT_Eav::Eav"/>
         <add id="AHT_Eav::Post" title="Post" module="AHT_Eav" sortOrder="10" resource="AHT_Eav::Eav" parent="AHT_Eav::Eav" action="eav/post/"/>
         <add id="AHT_Eav::PostAttribute" title="Category" module="AHT_Eav" sortOrder="20" resource="AHT_Eav::PostAttribute" parent="AHT_Eav::Eav" action="eav/attribute/"/>
->>>>>>> Stashed changes
     </menu>
 </config>
