@@ -103,11 +103,11 @@
                     <settings>
                         <required>false</required>
                         <uploaderConfig>
-                            <param xsi:type="url" name="url" path="eav/index/upload"/>
+                            <param xsi:type="url" name="url" path="eav/post/upload"/>
                         </uploaderConfig>
                         <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
                         <openDialogTitle>Media Gallery</openDialogTitle>
-                        <initialMediaGalleryOpenSubpath>portfolio/index</initialMediaGalleryOpenSubpath>
+                        <initialMediaGalleryOpenSubpath>eav/index</initialMediaGalleryOpenSubpath>
                         <allowedExtensions>jpg jpeg gif png</allowedExtensions>
                         <maxFileSize>4194304</maxFileSize>
                     </settings>

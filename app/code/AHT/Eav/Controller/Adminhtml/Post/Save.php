@@ -46,6 +46,7 @@ class Save extends Action
                 $imageName = '';
             }
             $data['images'] = $imageName;
+            $newData['images'] =  $data['images'];
         if ($id) {
             $post->load($id);
         }
