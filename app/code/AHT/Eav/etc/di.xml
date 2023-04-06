@@ -12,6 +12,7 @@
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
      <preference for="AHT\Eav\Api\PostManagementInterface" type="AHT\Eav\Model\Api\PostManagement"/>
+      <preference for="AHT\Eav\Api\CategoriesManagementInterface" type="AHT\Eav\Model\Api\CategoriesManagement"/>
     <!-- <type name="AHT\Eav\Model\CustomConfigProvider">
         <arguments>
             <argument name="configProviders" xsi:type="array">

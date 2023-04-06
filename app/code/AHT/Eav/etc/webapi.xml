@@ -6,4 +6,10 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+     <route url="/V1/eav/categories" method="GET" >
+        <service class="AHT\Eav\Api\CategoriesManagementInterface" method="getCategories"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>

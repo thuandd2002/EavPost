@@ -7,11 +7,11 @@ declare(strict_types=1);
 
 namespace AHT\Eav\Controller\Adminhtml;
 
-abstract class Post extends \Magento\Backend\App\Action
+abstract class Categories extends \Magento\Backend\App\Action
 {
 
+    const ADMIN_RESOURCE = 'AHT_Eav::category';
     protected $_coreRegistry;
-    const ADMIN_RESOURCE = 'AHT_Eav::index';
 
     /**
      * @param \Magento\Backend\App\Action\Context $context
@@ -35,7 +35,7 @@ abstract class Post extends \Magento\Backend\App\Action
     {
         $resultPage->setActiveMenu(self::ADMIN_RESOURCE)
             ->addBreadcrumb(__('AHT'), __('AHT'))
-            ->addBreadcrumb(__('Post'), __('Post'));
+            ->addBreadcrumb(__('Categories'), __('Categories'));
         return $resultPage;
     }
 }

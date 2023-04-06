@@ -85,6 +85,21 @@
 				</validation>
 			</settings>
 		</field>
+		 <field name="categoryid" sortOrder="3" formElement="select">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Category</label>
+                <dataScope>categoryid</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="AHT\Eav\Ui\Component\Categories\Column\ListOptionForm" />
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
         <field name="image" formElement="imageUploader" >
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

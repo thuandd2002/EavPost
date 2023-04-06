@@ -1,9 +1,9 @@
 <?php
 namespace AHT\Eav\Model;
 
-class Post extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
+class Categories extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
-    const CACHE_TAG = 'eav_post';
+    const CACHE_TAG = 'categories';
 
     /**
      * Model cache tag for clear cache in after save and after delete
@@ -17,7 +17,7 @@ class Post extends \Magento\Framework\Model\AbstractModel implements \Magento\Fr
      *
      * @var string
      */
-    protected $_eventPrefix = 'post';
+    protected $_eventPrefix = 'categories';
 
     /**
      * @param \Magento\Framework\Model\Context $context
@@ -43,7 +43,7 @@ class Post extends \Magento\Framework\Model\AbstractModel implements \Magento\Fr
      */
     protected function _construct()
     {
-        $this->_init('AHT\Eav\Model\ResourceModel\Post');
+        $this->_init('AHT\Eav\Model\ResourceModel\Categories');
     }
 
     /**
