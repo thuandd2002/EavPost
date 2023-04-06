@@ -27,6 +27,7 @@ define([
                              result = result +=` <tr>
                              <td>${item.entity_id}</td>
                              <td>${item.content}</td>
+                             <td><img src="http://m243.local/media/eav/index/${item.images}" width="500" height="600"></td>
                           </tr>`;
                             
                        });
