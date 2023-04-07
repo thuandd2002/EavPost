@@ -18,14 +18,13 @@ class CategoriesManagement implements CategoriesManagementInterface
         $this->categoriesFactory = $categoriesFactory;
         $this->resultJsonFactory = $resultJsonFactory;
     }
-
     /**
      * Initialize resource model
      *
      * @param string $id
      * @return void
      */
-    public function getPostByCategories(){
+    public function getCategories(){
         try {
             $data = $this->categoriesFactory->create()->getCollection()->getData();
             return ['success' => true, 'data' => $data];
@@ -33,4 +32,5 @@ class CategoriesManagement implements CategoriesManagementInterface
             return ['success' => false, 'message' => $e->getMessage()];
         }
     }
+  
 }

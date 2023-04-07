@@ -2,7 +2,7 @@
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="post" resource="default" engine="innodb" comment="Post">
         <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
-        <column xsi:type="int" name="categoryid" nullable="false"  comment="Entity ID"/>
+        <column xsi:type="varchar" name="categoryid" nullable="false"  comment="Entity ID"/>
         <column xsi:type="varchar" name="name" comment="Name"/>
         <column xsi:type="text" name="images" comment="Images" nullable="false"/>
         <column xsi:type="varchar" name="content" comment="Content"/>

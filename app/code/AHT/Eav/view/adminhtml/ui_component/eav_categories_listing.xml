@@ -83,7 +83,7 @@
                         <message translate="true">Are you sure you want to delete selected items?</message>
                         <title translate="true">Delete items</title>
                     </confirm>
-                    <url path="categories/index/massDelete"/>
+                    <url path="/eav/categories/massDelete"/>
                     <type>delete</type>
                     <label translate="true">Delete</label>
                 </settings>

@@ -10,6 +10,6 @@ interface CategoriesManagementInterface
      * @return string
      */
 
-    public function getCategories($categoryid);
+    public function getCategories();
 
 }

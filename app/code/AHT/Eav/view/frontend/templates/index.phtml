@@ -2,7 +2,7 @@
 /** @var \AHT\Eav\Block\Template $block */
 ?>
 <script>
-    window.customConfig = <?=\Zend_Json::encode($block->getPost())?>;
+    window.customConfig = <?=\Zend_Json::encode($block->getCategories())?>;
 </script>
 <div id="md-knockout-example" data-bind="scope:'md-ko-example'">
     <!--   ko template: getTemplate() --><!-- /ko -->

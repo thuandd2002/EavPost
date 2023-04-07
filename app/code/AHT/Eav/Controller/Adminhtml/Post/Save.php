@@ -47,6 +47,7 @@ class Save extends Action
             }
             $data['images'] = $imageName;
             $newData['images'] =  $data['images'];
+            $newData['categoryid'] =implode(",", $data['categoryid']);
         if ($id) {
             $post->load($id);
         }
