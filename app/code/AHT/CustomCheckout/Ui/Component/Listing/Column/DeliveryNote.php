@@ -7,7 +7,7 @@ use \Magento\Framework\View\Element\UiComponentFactory;
 use \Magento\Ui\Component\Listing\Columns\Column;
 use \Magento\Framework\Api\SearchCriteriaBuilder;
 
-class DeliveryDate extends Column
+class DeliveryNote extends Column
 {
     protected $_orderRepository;
     protected $_searchCriteria;
@@ -24,7 +24,7 @@ class DeliveryDate extends Column
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
                 $order  = $this->_orderRepository->get($item["entity_id"]);
-                $date = $order->getData("delivery_date");
+                $date = $order->getData("delivery_note");
                 $item[$this->getData('name')] = $date;  
             }
         }

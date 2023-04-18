@@ -8,5 +8,7 @@ class SaveToOrder implements \Magento\Framework\Event\ObserverInterface
         $quote = $event->getQuote();
         $order = $event->getOrder();
         $order->setData('delivery_date', $quote->getData('delivery_date'));
+        $order->setData('delivery_note', $quote->getData('delivery_note'));
     }
 }
+    

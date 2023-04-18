@@ -27,6 +27,7 @@ class Save extends \Magento\Framework\App\Action\Action
         if ($post) {
             $cartId       = $post['cartId'];
             $deliveryDate = $post['delivery_date'];
+            $deliveryNote = $post['delivery_note'];
             $loggin       = $post['is_customer'];
 
             if ($loggin === 'false') {
@@ -37,8 +38,8 @@ class Save extends \Magento\Framework\App\Action\Action
             if (!$quote->getItemsCount()) {
                 throw new NoSuchEntityException(__('Cart %1 doesn\'t contain products', $cartId));
             }
-
             $quote->setData('delivery_date', $deliveryDate);
+            $quote->setData('delivery_note', $deliveryNote);
             $this->quoteRepository->save($quote);
         }
     }

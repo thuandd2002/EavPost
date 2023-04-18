@@ -28,20 +28,21 @@ define([
             agreementsAssigner(paymentData);
             var isCustomer = customer.isLoggedIn();
             var quoteId = quote.getQuoteId();
-
             var url = urlFormatter.build('custom_checkout/quote/save');
 
             var deliveryDate = $('[name="delivery_date"]').val();
+            var deliveryNote = $('[name="delivery_note"]').val();
 
-            if (deliveryDate) {
+            if (deliveryDate || deliveryNote) {
 
                 var payload = {
                     'cartId': quoteId,
                     'delivery_date': deliveryDate,
+                    'delivery_note': deliveryNote,
                     'is_customer': isCustomer
                 };
 
-                if (!payload.delivery_date) {
+                if (!payload.delivery_date || !payload.delivery_note) {
                     return true;
                 }
 
