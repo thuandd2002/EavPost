@@ -1,0 +1,75 @@
+<?php
+/** @var \AHT\Modal\Block\Template $block */
+?>
+
+<div class="template">
+    <button id="btn1">
+        <span><?= $block->escapeHtml(__('Open Modal1'))?></span>
+    </button>
+    <button id="btn2">
+        <span><?= $block->escapeHtml(__('Open Modal2'))?></span>
+    </button>
+    <button id="btn3">
+        <span><?= $block->escapeHtml(__('Open Modal3'))?></span>
+    </button>
+
+    <div id="modal1">
+        <div class="modal-body-content">
+            <h2><?=$block->escapeHtml(__('Open Modal'))?></h2>
+            <span style="color: red;">thuandeptrai</span>
+        </div>
+    </div>
+    <div id="modal2">
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    require([
+        'jquery',
+        "Magento_Ui/js/modal/modal",
+        'Magento_Customer/js/model/authentication-popup'
+    ],
+        function($, modal, auth){
+            var popup1= modal({
+                type : 'popup',
+                reponsive: true,
+                title: 'Main Title',
+                buttons: [{
+                    text:$.mage.__('close'),
+                    class: '',
+                    click: function(){
+                        this.closeModal();
+                    }
+                }]
+            },$('#modal1'));
+
+            var popup2= modal({
+                type : 'popup',
+                reponsive: true,
+                title: 'Login modal',
+                buttons: [{
+                    text:$.mage.__('close'),
+                    class: '',
+                    click: function(){
+                        this.closeModal();
+                    }
+                }]
+            },$('#modal2'));
+
+            $("#btn1").click(function(){
+                $('#modal1').modal('openModal');
+            });
+
+            $("#btn2").click(function(){
+                $('#modal2').modal('openModal');
+            });
+
+            $("#btn3").click(function(){
+                auth.showModal();
+            });
+        }
+    )
+
+</script>
