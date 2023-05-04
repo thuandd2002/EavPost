@@ -1,58 +1,16 @@
 <?php
-namespace AHT\SaleAgents\Model\Source;
+namespace AHT\Salesagents\Model\Source;
 
-class Commissiontype extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
+class Commissiontype extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource 
 {
-    const CACHE_TAG = 'aht_saleagent_commissiontype';
-
-    /**
-     * Model cache tag for clear cache in after save and after delete
-     *
-     * @var string
-     */
-    protected $_cacheTag = self::CACHE_TAG;
-
-    /**
-     * Prefix of model events names
-     *
-     * @var string
-     */
-    protected $_eventPrefix = 'commissiontype';
-
-    /**
-     * @param \Magento\Framework\Model\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Framework\Model\ResourceModel\AbstractResource $resource
-     * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection
-     * @param array $data
-     */
-    public function __construct(
-        \Magento\Framework\Model\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
-        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
-        array $data = []
-    ) {
-        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
-    }
-
-    /**
-     * Initialize resource model
-     *
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init('AHT\SaleAgent\Model\ResourceModel\Commissiontype');
-    }
-
-    /**
-     * Return a unique id for the model.
-     *
-     * @return array
-     */
-    public function getIdentities()
-    {
-        return [self::CACHE_TAG . '_' . $this->getId()];
+    public function getAllOptions() {
+        if ($this->_options === null) {
+            $this->_options = [
+                ['label' => __('--Fixel/Percent--'), 'value' => ''],
+                ['label' => __('Fixel'), 'value' => 1],
+                ['label' => __('Percent'), 'value' => 2]
+            ];
+        }
+        return $this->_options;
     }
 }
