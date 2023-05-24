@@ -1,0 +1,1 @@
+rm -rf generated/* ; rm -rf var/*; rm -rf pub/static/*; php bin/magento setup:di:compile; bin/magento setup:static-content:deploy -f; php bin/magento cache:flush; php bin/magento indexer:reindex; php bin/magento cache:flush;
