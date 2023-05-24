@@ -2,6 +2,7 @@
 namespace AHT\Eav\Controller\Adminhtml\Post;
 use AHT\Eav\Model\PostFactory;
 use Magento\Backend\App\Action;
+use AHT\Eav\Model\Post\ImageUploader;
 /**
 * Class Save
 * @package EavEavControllerAdminhtmlPost
@@ -17,12 +18,17 @@ class Save extends Action
      * @param ActionContext $context
      * @param PostFactory $postFactory
      */
+
+     protected $imageUploader;
+
     public function __construct(
         Action\Context $context,
         PostFactory $postFactory
+        , ImageUploader $imageUploader
     ) {
         parent::__construct($context);
         $this->postFactory = $postFactory;
+        $this->imageUploader = $imageUploader;
     }
     public function execute()
     {
@@ -33,6 +39,15 @@ class Save extends Action
             'content' => $data['content'],
         ];
         $post = $this->postFactory->create();
+            if (isset($data['image'][0]['name'])) {
+                $data['images'] = $data['image'][0]['name'];
+                $imageName = $data['images'];
+            }else{
+                $imageName = '';
+            }
+            $data['images'] = $imageName;
+            $newData['images'] =  $data['images'];
+            $newData['categoryid'] =implode(",", $data['categoryid']);
         if ($id) {
             $post->load($id);
         }
@@ -40,6 +55,9 @@ class Save extends Action
             $post->addData($newData);
             $post->save();
             $this->messageManager->addSuccessMessage(__('You saved the post.'));
+            if ($imageName) {
+                $this->imageUploader->moveFileFromTmp($imageName);
+            }
         } catch (Exception $e) {
             $this->messageManager->addErrorMessage(__($e->getMessage()));
         }

@@ -3,7 +3,7 @@ namespace AHT\Eav\Model;
 
 class Post extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
-    const CACHE_TAG = 'aht_eav_post';
+    const CACHE_TAG = 'eav_post';
 
     /**
      * Model cache tag for clear cache in after save and after delete

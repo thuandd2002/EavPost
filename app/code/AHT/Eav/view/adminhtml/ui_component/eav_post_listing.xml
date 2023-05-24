@@ -11,19 +11,21 @@
             <item name="provider" xsi:type="string">eav_post_listing.eav_post_listing_data_source</item>
         </item>
     </argument>
+    <!-- ADD new button -->
     <settings>
         <buttons>
             <button name="add">
-                <url path="*/*/newaction"/>
+                <url path="*/*/new"/>
                 <class>primary</class>
                 <label translate="true">Add New Post</label>
             </button>
         </buttons>
-        <spinner>eav_post_columns</spinner>
+        <spinner>aht_post_columns</spinner>
         <deps>
             <dep>eav_post_listing.eav_post_listing_data_source</dep>
         </deps>
     </settings>
+    <!-- End add new button-->
     <dataSource name="eav_post_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
@@ -31,7 +33,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>AHT::Post</aclResource>
+        <aclResource>AHT_Eav::index</aclResource>
         <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="eav_post_listing_data_source">
             <settings>
                 <requestFieldName>entity_id</requestFieldName>
@@ -62,17 +64,17 @@
                     </filters>
                 </templates>
             </settings>
-            <!-- <filterSelect name="store_id" provider="${ $.parentName }">
+            <filterSelect name="store_id" provider="${ $.parentName }">
                 <settings>
                     <captionValue>0</captionValue>
                     <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
                     <label translate="true">Store View</label>
                     <dataScope>store_id</dataScope>
                     <imports>
-                        <link name="visible">ns = ${ $.ns }, index = ${ $.index }:visible</link>
+                        <link name="visible">componentType = column, index = ${ $.index }:visible</link>
                     </imports>
                 </settings>
-            </filterSelect> -->
+            </filterSelect>
         </filters>
         <massaction name="listing_massaction">
             <action name="delete">
@@ -86,25 +88,11 @@
                     <label translate="true">Delete</label>
                 </settings>
             </action>
-            <action name="disable">
-                <settings>
-                    <url path="eav/post/massDisable"/>
-                    <type>disable</type>
-                    <label translate="true">Disable</label>
-                </settings>
-            </action>
-            <action name="enable">
-                <settings>
-                    <url path="eav/post/massEnable"/>
-                    <type>enable</type>
-                    <label translate="true">Enable</label>
-                </settings>
-            </action>
             <action name="edit">
                 <settings>
                     <callback>
                         <target>editSelected</target>
-                        <provider>eav_post_listing.eav_post_listing.eav_post_columns_editor</provider>
+                        <provider>eav_post_listing.eav_post_listing.aht_post_columns_editor</provider>
                     </callback>
                     <type>edit</type>
                     <label translate="true">Edit</label>
@@ -113,20 +101,20 @@
         </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
-    <columns name="eav_post_columns">
+    <columns name="aht_post_columns">
         <settings>
             <editorConfig>
                 <param name="clientConfig" xsi:type="array">
-                    <item name="saveUrl" xsi:type="url" path="eav/post/inlineEdit"/>
+                    <item name="saveUrl" xsi:type="url" path="post/index/inlineEdit"/>
                     <item name="validateBeforeSave" xsi:type="boolean">false</item>
                 </param>
-                <param name="indexField" xsi:type="string">entity_id</param>
+                <param name="indexField" xsi:type="string">id</param>
                 <param name="enabled" xsi:type="boolean">true</param>
-                <param name="selectProvider" xsi:type="string">eav_post_listing.eav_post_listing.eav_post_columns.ids</param>
+                <param name="selectProvider" xsi:type="string">eav_post_listing.eav_post_listing.aht_post_columns.ids</param>
             </editorConfig>
             <childDefaults>
                 <param name="fieldAction" xsi:type="array">
-                    <item name="provider" xsi:type="string">eav_post_listing.eav_post_listing.eav_post_columns_editor</item>
+                    <item name="provider" xsi:type="string">eav_post_listing.eav_post_listing.aht_post_columns_editor</item>
                     <item name="target" xsi:type="string">startEdit</item>
                     <item name="params" xsi:type="array">
                         <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
@@ -148,6 +136,17 @@
                 <label translate="true">ID</label>
                 <sorting>asc</sorting>
             </settings>
+        </column>
+        <column name="images" class="AHT\Eav\Ui\Component\Listing\Column\Image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">3</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="has_preview" xsi:type="string">1</item>
+                    <item name="label" xsi:type="string" translate="true">Images</item>
+                </item>
+            </argument>
         </column>
         <column name="name">
             <settings>
@@ -174,11 +173,13 @@
             </settings>
         </column>
         <actionsColumn name="actions" class="AHT\Eav\Ui\Component\Listing\Column\PostActions">
-            <settings>
-                <indexField>entity_id</indexField>
-                <resizeEnabled>false</resizeEnabled>
-                <resizeDefaultWidth>107</resizeDefaultWidth>
-            </settings>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">6</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                    <item name="urlEntityParamName" xsi:type="string">id</item>
+                </item>
+            </argument>
         </actionsColumn>
     </columns>
 </listing>

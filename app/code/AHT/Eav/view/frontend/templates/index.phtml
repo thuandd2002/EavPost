@@ -1,19 +1,8 @@
 <?php
 /** @var \AHT\Eav\Block\Template $block */
 ?>
-<div class="template">
-    <h1><?=$block->getName()?></h1>
-    <?php
-        $post = $block->getPost();
-        foreach ($post as $item){
-            echo $item['name'];
-            echo "<pre>";
-            echo $item['content'];
-        }
-    ?>
-</div>
 <script>
-    window.customConfig = <?=\Zend_Json::encode($block->getPost())?>;
+    window.customConfig = <?=\Zend_Json::encode($block->getCategories())?>;
 </script>
 <div id="md-knockout-example" data-bind="scope:'md-ko-example'">
     <!--   ko template: getTemplate() --><!-- /ko -->
@@ -31,21 +20,3 @@
 }
 </script>
 </div>
-
-
-<!--<div id="component-Id" data-bind="scope:'customComponent'">-->
-<!--    <script type="text/x-magento-init">-->
-<!--    {-->
-<!--        "#component-Id": {-->
-<!--            "Magento_Ui/js/core/app": {-->
-<!--               "customComponent": {-->
-<!--                    "ko": {-->
-<!--                        "component": "AHT_Eav/js/requirejs-config",-->
-<!--                        "template" : "AHT_Eav/custom",-->
-<!--                    }-->
-<!--                }-->
-<!--            }-->
-<!--        }-->
-<!--    }-->
-<!--    </script>-->
-<!--</div>-->

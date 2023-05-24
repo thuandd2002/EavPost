@@ -1,11 +1,11 @@
 <?php
-namespace AHT\Eav\Controller\Adminhtml\Attribute;
+namespace AHT\IsFeatureProduct\Controller\Adminhtml\Product;
 
 class Index extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'AHT_Eav::Eav';
+    const ADMIN_RESOURCE = 'AHT_IsFeatureProduct::isfeatureproduct';
 
-    const PAGE_TITLE = 'Page Title';
+    const PAGE_TITLE = 'Is Feature Product';
 
     /**
      * @var \Magento\Framework\View\Result\PageFactory
@@ -30,13 +30,13 @@ class Index extends \Magento\Backend\App\Action
      * @return \Magento\Framework\View\Result\Page
      */
     public function execute()
-    {
+    {   
+   
          /** @var \Magento\Framework\View\Result\Page $resultPage */
          $resultPage = $this->_pageFactory->create();
          $resultPage->setActiveMenu(static::ADMIN_RESOURCE);
          $resultPage->addBreadcrumb(__(static::PAGE_TITLE), __(static::PAGE_TITLE));
          $resultPage->getConfig()->getTitle()->prepend(__(static::PAGE_TITLE));
-
          return $resultPage;
     }
 

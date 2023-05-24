@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="AHT_Eav::Eav" title="Eav" module="AHT_Eav" sortOrder="10" resource="AHT_Eav::Eav"/>
-        <add id="AHT_Eav::Post" title="Post" module="AHT_Eav" sortOrder="10" resource="AHT_Eav::Eav" parent="AHT_Eav::Eav" action="eav/post/"/>
-        <add id="AHT_Eav::PostAttribute" title="Attribute" module="AHT_Eav" sortOrder="20" resource="AHT_Eav::PostAttribute" parent="AHT_Eav::Eav" action="eav/attribute/"/>
+        <add id="AHT_Eav::post" title="Eav" module="AHT_Eav" sortOrder="10" resource="AHT_Eav::post"/>
+        <add id="AHT_Eav::index" title="Post" module="AHT_Eav" sortOrder="10" resource="AHT_Eav::index" parent="AHT_Eav::post" action="eav/post/"/>
+        <add id="AHT_Eav::category" title="Category" module="AHT_Eav" sortOrder="20" resource="AHT_Eav::category" parent="AHT_Eav::post" action="eav/categories/"/>
     </menu>
 </config>

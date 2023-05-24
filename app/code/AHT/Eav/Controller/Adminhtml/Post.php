@@ -11,7 +11,7 @@ abstract class Post extends \Magento\Backend\App\Action
 {
 
     protected $_coreRegistry;
-    const ADMIN_RESOURCE = 'AHT_Eav::Eav';
+    const ADMIN_RESOURCE = 'AHT_Eav::index';
 
     /**
      * @param \Magento\Backend\App\Action\Context $context
